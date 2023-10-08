@@ -1,8 +1,38 @@
 @import "../../css/variables.scss";
 
-.week {
-  width: 100%;
-  height: 10rem;
-  background-color: $placeholder;
-  border-radius: 0.75rem;
+.weekly-section {
+  header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    h3 {
+      flex: auto;
+      margin: 0;
+    }
+
+    button {
+      border-radius: 100rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      background-color: $placeholder;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .week {
+    width: 100%;
+    height: 10rem;
+    background-color: $placeholder;
+    border-radius: 0.75rem;
+  }
 }
