@@ -39,7 +39,7 @@ function App() {
         <Toolbar />
       </header>
       <Now loading={loading} weather={weather} settings={settings} />
-      <Hourly />
+      <Hourly loading={loading} weather={weather} settings={settings} />
       <Weekly />
     </div>
   );

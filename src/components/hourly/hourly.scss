@@ -1,6 +1,11 @@
 .hour {
-  //   width: 8rem;
-  height: 10rem;
+  height: 8rem;
   border-radius: 0.5rem;
   flex: auto;
+  min-width: 6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
