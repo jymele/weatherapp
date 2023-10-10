@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Now({ loading, weather, units }) {
-  console.log(weather);
+  useEffect(() => {
+    if (weather !== undefined) {
+      console.log(weather);
+    }
+  }, [weather]);
 
   return (
     <div className="now">
