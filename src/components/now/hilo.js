@@ -12,7 +12,16 @@ export default function Hilo({ loading, weather, settings }) {
         <ArrowDown className="minIcon" />
         <div>
           <span>Min</span>
-          {settings.temp === "c" && <h3>23&deg;</h3>}
+          {settings.temp === "c" && (
+            <h3>
+              {Math.round(weather.forecast.forecastday[0].day.mintemp_c)}&deg;
+            </h3>
+          )}
+          {settings.temp === "f" && (
+            <h3>
+              {Math.round(weather.forecast.forecastday[0].day.mintemp_f)}&deg;
+            </h3>
+          )}
         </div>
       </div>
       <div className="hilo max">
@@ -20,7 +29,16 @@ export default function Hilo({ loading, weather, settings }) {
 
         <div>
           <span>Max</span>
-          {settings.temp === "c" && <h3>28&deg;</h3>}
+          {settings.temp === "c" && (
+            <h3>
+              {Math.round(weather.forecast.forecastday[0].day.maxtemp_c)}&deg;
+            </h3>
+          )}
+          {settings.temp === "f" && (
+            <h3>
+              {Math.round(weather.forecast.forecastday[0].day.maxtemp_f)}&deg;
+            </h3>
+          )}
         </div>
       </div>
     </div>

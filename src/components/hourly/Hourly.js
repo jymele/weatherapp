@@ -35,8 +35,12 @@ export default function Hourly({ loading, weather, settings }) {
                 src={item.condition.icon}
                 alt={item.condition.text}
               />
-              {settings.temp === "c" && <div>{item.temp_c}&deg;C</div>}
-              {settings.temp === "f" && <div>{item.temp_f}&deg;F</div>}
+              {settings.temp === "c" && (
+                <div>{Math.round(item.temp_c)}&deg;C</div>
+              )}
+              {settings.temp === "f" && (
+                <div>{Math.round(item.temp_f)}&deg;F</div>
+              )}
             </div>
           ))}
         </div>

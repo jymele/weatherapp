@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import WeatherIcon from "./weatherIcon";
 import WeatherInfo from "./weatherInfo";
 import Hilo from "./hilo";
+import Feeling from "./feeling";
 
 export default function Now({ loading, weather, settings }) {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Now({ loading, weather, settings }) {
         <WeatherInfo loading={loading} weather={weather} />
         <div>
           <Hilo loading={loading} weather={weather} settings={settings} />
-          <div className="feeling">Feels like 25&deg;</div>
+          <Feeling loading={loading} weather={weather} settings={settings} />
         </div>
       </div>
     </div>

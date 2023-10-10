@@ -24,7 +24,6 @@ function App() {
         "&q=Pickering"
     )
       .then((data) => data.json())
-      // .then((data) => console.log(data))
       .then((data) => setWeather(data))
       .then(() => setLoading(false));
   }
