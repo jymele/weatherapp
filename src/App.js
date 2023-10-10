@@ -9,7 +9,7 @@ import { weatherapi } from "./config";
 function App() {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState();
-  const [units, setUnits] = useState({
+  const [settings, setSettings] = useState({
     temp: "c",
   });
 
@@ -38,7 +38,7 @@ function App() {
       <header className="App-header">
         <Toolbar />
       </header>
-      <Now loading={loading} weather={weather} units={units} />
+      <Now loading={loading} weather={weather} settings={settings} />
       <Hourly />
       <Weekly />
     </div>
