@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import Hourly from "./components/hourly/Hourly";
 import Now from "./components/now/index";

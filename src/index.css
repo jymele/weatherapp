@@ -4,4 +4,5 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, #124198 0%, #022a6d 100%);
 }
