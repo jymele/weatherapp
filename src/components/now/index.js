@@ -15,7 +15,7 @@ export default function Now({ loading, weather, settings }) {
     <div className="now">
       <div className="main">
         <WeatherIcon loading={loading} weather={weather} />
-        <WeatherInfo loading={loading} weather={weather} />
+        <WeatherInfo settings={settings} loading={loading} weather={weather} />
         <div>
           <Hilo loading={loading} weather={weather} settings={settings} />
           <Feeling loading={loading} weather={weather} settings={settings} />
