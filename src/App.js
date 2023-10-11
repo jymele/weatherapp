@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.scss";
 import Hourly from "./components/hourly/Hourly";
 import Now from "./components/now/index";
-import Toolbar from "./components/toolbar";
+import Toolbar from "./components/toolbar/index";
 import Weekly from "./components/weekly/Weekly";
 import { weatherapi } from "./config";
 
@@ -34,9 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Toolbar />
-      </header>
+      <Toolbar />
+
       <Now loading={loading} weather={weather} settings={settings} />
       <Hourly loading={loading} weather={weather} settings={settings} />
       <Weekly />

@@ -1,0 +1,29 @@
+@import "../../css/variables";
+
+.search {
+  flex: auto;
+  background-color: transparent;
+  border: none;
+  color: $textColor;
+  height: 100%;
+  font-size: 1.25rem;
+  padding: 0;
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.options {
+  margin-top: 1rem;
+  width: clamp(20rem, 30%, 40rem);
+  position: absolute;
+  right: 1rem;
+
+  overflow: hidden;
+
+  div {
+    padding: 1rem;
+    border: 1px solid aliceblue;
+    border-radius: 0.5rem;
+  }
+}
