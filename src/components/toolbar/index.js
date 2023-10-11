@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Searchbar, Cancel, Settings } from "../Icons";
 import styles from "./toolbar.module.scss";
 
-export default function Toolbar() {
+export default function Toolbar({ settings, setTemp }) {
+  const [tempC, setTempC] = useState(true);
+
+  function toggleTemp() {
+    let newTemp = "";
+    if (settings.temp === "c") {
+      newTemp = "f";
+    } else {
+      newTemp = "c";
+    }
+
+    setTemp(newTemp);
+  }
+
   return (
     <>
       <header className="App-header">
@@ -19,10 +32,21 @@ export default function Toolbar() {
         <button className="buttonIcon">
           <Settings className="icon" />
         </button>
+        <button className={styles.tempToggle} onClick={toggleTemp}>
+          <div
+            className={
+              settings.temp === "c"
+                ? `${styles.indicator} ${styles.celcius}`
+                : `${styles.indicator} ${styles.far}`
+            }
+          ></div>
+          <div className={styles.option}>C</div>
+          <div className={styles.option}>F</div>
+        </button>
       </header>
-      <div className={styles.options}>
+      {/* <div className={styles.options}>
         <div>Testing</div>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -27,3 +27,48 @@
     border-radius: 0.5rem;
   }
 }
+
+.tempToggle {
+  position: relative;
+  color: $textColor;
+  box-shadow: inset 0px 0px 2px $placeholderHovered;
+  display: flex;
+  padding: 0;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background-color: $placeholder;
+  border-radius: 2rem;
+  cursor: pointer;
+
+  .option {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+  }
+
+  .indicator {
+    min-width: calc(3rem - 4px);
+    min-height: calc(3rem - 4px);
+    z-index: -20;
+    position: absolute;
+    background-color: $placeholder;
+    border-radius: 3rem;
+    top: 0.12rem;
+    bottom: 0.12rem;
+    // box-shadow: inset 0 0 2px $placeholderHovered;
+    transition: all 200ms ease-in-out;
+
+    &.celcius {
+      margin-left: -3rem;
+    }
+
+    &.far {
+      margin-left: 3rem;
+    }
+  }
+}

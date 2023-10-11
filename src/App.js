@@ -13,6 +13,13 @@ function App() {
     temp: "c",
   });
 
+  function setTemp(newTemp) {
+    let newSetting = {
+      temp: newTemp,
+    };
+    setSettings(newSetting);
+  }
+
   function getWeather() {
     setLoading(true);
 
@@ -34,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Toolbar />
+      <Toolbar settings={settings} setTemp={setTemp} />
 
       <Now loading={loading} weather={weather} settings={settings} />
       <Hourly loading={loading} weather={weather} settings={settings} />
