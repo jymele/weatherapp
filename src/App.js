@@ -48,7 +48,6 @@ function App() {
       <Now loading={loading} weather={weather} settings={settings} />
       <Hourly loading={loading} weather={weather} settings={settings} />
       <Details loading={loading} weather={weather} settings={settings} />
-      {/* <Weekly /> */}
     </div>
   );
 }
