@@ -1,0 +1,48 @@
+@import "../../css/variables";
+
+.panel {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  .item {
+    min-height: 5rem;
+    background-color: $placeholder;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    h4 {
+      margin: 0;
+      font-weight: 400;
+      font-size: 0.825rem;
+      opacity: 0.75;
+      margin-bottom: 0.125;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+  .panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (min-width: 721px) {
+  .panel {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
