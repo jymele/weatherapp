@@ -3,7 +3,7 @@ import "./App.scss";
 import Hourly from "./components/hourly/Hourly";
 import Now from "./components/now/index";
 import Toolbar from "./components/toolbar/index";
-import Weekly from "./components/weekly/Weekly";
+// import Weekly from "./components/weekly/Weekly";
 import { weatherapi } from "./config";
 import Details from "./components/details";
 
@@ -22,15 +22,20 @@ function App() {
     setSettings(newSetting);
   }
 
-  function getWeather() {
+  function getWeather(location) {
     setLoading(true);
+
+    // if (location === "" || location === undefined) {
+    //   location = "Pickering";
+    // }
 
     fetch(
       weatherapi.baseUrl +
         weatherapi.forecastPath +
         "?key=" +
         weatherapi.key +
-        "&q=Pickering"
+        "&q=" +
+        location
     )
       .then((data) => data.json())
       .then((data) => setWeather(data))
@@ -38,12 +43,17 @@ function App() {
   }
 
   useEffect(() => {
-    getWeather();
+    getWeather("toronto");
   }, []);
 
   return (
     <div className="App">
-      <Toolbar settings={settings} setTemp={setTemp} />
+      <Toolbar
+        settings={settings}
+        setTemp={setTemp}
+        getWeather={getWeather}
+        weather={weather}
+      />
 
       <Now loading={loading} weather={weather} settings={settings} />
       <Hourly loading={loading} weather={weather} settings={settings} />

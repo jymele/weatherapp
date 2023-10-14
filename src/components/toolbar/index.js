@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Searchbar, Cancel, Settings } from "../Icons";
 import styles from "./toolbar.module.scss";
 
-export default function Toolbar({ settings, setTemp }) {
-  const [tempC, setTempC] = useState(true);
+export default function Toolbar({ settings, setTemp, weather, getWeather }) {
+  const [query, setQuery] = useState("");
 
   function toggleTemp() {
     let newTemp = "";
@@ -16,15 +16,29 @@ export default function Toolbar({ settings, setTemp }) {
     setTemp(newTemp);
   }
 
+  function searchWeather(e) {
+    e.preventDefault();
+    getWeather(query);
+    setQuery("");
+  }
+
   return (
     <>
       <header className="App-header">
-        <form className="searchbar">
+        <form className="searchbar" onSubmit={searchWeather}>
           <Searchbar className="icon" />
           <input
             className={styles.search}
-            placeholder="Pickering, ON"
+            placeholder={
+              weather
+                ? `${weather.location.name}, ${weather.location.region}`
+                : "Loading region"
+            }
             type="text"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
           />
           <Cancel className="icon" />
         </form>
