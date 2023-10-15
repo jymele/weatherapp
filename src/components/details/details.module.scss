@@ -4,11 +4,11 @@
   margin-top: 1rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   .item {
     min-height: 5rem;
-    background-color: $placeholder;
+    // background-color: $placeholder;
     padding: 0.75rem;
     border-radius: 0.5rem;
     display: grid;
@@ -37,7 +37,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 720px) {
   .panel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

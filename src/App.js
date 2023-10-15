@@ -1,25 +1,45 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import Hourly from "./components/hourly/Hourly";
-import Now from "./components/now/index";
 import Toolbar from "./components/toolbar/index";
 // import Weekly from "./components/weekly/Weekly";
 import { weatherapi } from "./config";
-import Details from "./components/details";
+import Dashboard from "./pages/dashboard";
+import SearchResult from "./components/search/searchResult";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState();
+  const [locations, setLocations] = useState([]);
+  const [loadingLoc, setLoadingLoc] = useState(false);
   const [settings, setSettings] = useState({
     temp: "c",
     distance: "km",
   });
+  const navigate = useNavigate();
 
   function setTemp(newTemp) {
     let newSetting = {
       temp: newTemp,
     };
     setSettings(newSetting);
+  }
+
+  function getLocations(locString) {
+    setLoadingLoc(true);
+    fetch(
+      weatherapi.baseUrl +
+        "/search.json" +
+        "?key=" +
+        weatherapi.key +
+        "&q=" +
+        locString
+    )
+      .then((data) => data.json())
+      // .then((data) => console.log("locations", data))
+      .then((data) => setLocations(data))
+      .then(() => navigate("/search"))
+      .then(setLoadingLoc(false));
   }
 
   function getWeather(location) {
@@ -31,7 +51,8 @@ function App() {
         "?key=" +
         weatherapi.key +
         "&q=" +
-        location + "&days=7"
+        location +
+        "&days=7"
     )
       .then((data) => data.json())
       .then((data) => setWeather(data))
@@ -48,12 +69,37 @@ function App() {
         settings={settings}
         setTemp={setTemp}
         getWeather={getWeather}
+        getLocations={getLocations}
         weather={weather}
       />
 
-      <Now loading={loading} weather={weather} settings={settings} />
-      <Hourly loading={loading} weather={weather} settings={settings} />
-      <Details loading={loading} weather={weather} settings={settings} />
+      <Routes>
+        {/* <Route path="/" element={<Dashboard loading={loading} weather={weather} settings={settings} />}>
+
+    </Route> */}
+        <Route
+          index
+          element={
+            <Dashboard
+              loading={loading}
+              weather={weather}
+              settings={settings}
+            />
+          }
+        />
+        <Route
+          path="search"
+          element={
+            <SearchResult
+              loading={loadingLoc}
+              locations={locations}
+              getWeather={getWeather}
+            />
+          }
+        />
+      </Routes>
+      {/* <Dashboard loading={loading} weather={weather} settings={settings} /> */}
+      {/* <SearchResult loading={loadingLoc} /> */}
     </div>
   );
 }
