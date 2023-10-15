@@ -35,7 +35,7 @@ function App() {
         "?key=" +
         weatherapi.key +
         "&q=" +
-        location
+        location + "&days=7"
     )
       .then((data) => data.json())
       .then((data) => setWeather(data))
