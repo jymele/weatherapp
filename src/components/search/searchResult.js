@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./searchresult.module.scss";
+import { motion, useAnimate, stagger } from "framer-motion";
 
 export default function SearchResult({ locations, loading, getWeather }) {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.results}>
+    <motion.div className={styles.results}>
       {locations.map((item, index) => (
         <button
           key={index}
@@ -19,6 +20,6 @@ export default function SearchResult({ locations, loading, getWeather }) {
           {item.name} - {item.region} - {item.country}
         </button>
       ))}
-    </div>
+    </motion.div>
   );
 }
