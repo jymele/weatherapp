@@ -25,10 +25,6 @@ function App() {
   function getWeather(location) {
     setLoading(true);
 
-    // if (location === "" || location === undefined) {
-    //   location = "Pickering";
-    // }
-
     fetch(
       weatherapi.baseUrl +
         weatherapi.forecastPath +

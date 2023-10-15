@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./now.module.scss";
 
 export default function WeatherInfo({ settings, loading, weather }) {
   if (loading) {
@@ -6,7 +7,7 @@ export default function WeatherInfo({ settings, loading, weather }) {
   }
 
   return (
-    <div>
+    <div className={styles.weatherInfo}>
       {settings.temp === "c" && (
         <h2>{Math.round(weather.current.temp_c)}&deg;C</h2>
       )}

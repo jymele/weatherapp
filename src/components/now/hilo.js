@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUp, ArrowDown } from "../Icons";
+import styles from "./now.module.scss";
 
 export default function Hilo({ loading, weather, settings }) {
   if (loading) {
@@ -7,9 +8,9 @@ export default function Hilo({ loading, weather, settings }) {
   }
 
   return (
-    <div className="range">
-      <div className="hilo min">
-        <ArrowDown className="minIcon" />
+    <div className={styles.range}>
+      <div className={`${styles.hilo} min`}>
+        <ArrowDown className={styles.icon} />
         <div>
           <span>Min</span>
           {settings.temp === "c" && (
@@ -24,8 +25,8 @@ export default function Hilo({ loading, weather, settings }) {
           )}
         </div>
       </div>
-      <div className="hilo max">
-        <ArrowUp className="maxIcon" />
+      <div className={`${styles.hilo} max`}>
+        <ArrowUp className={styles.icon} />
 
         <div>
           <span>Max</span>

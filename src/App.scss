@@ -60,15 +60,6 @@ h3 {
       height: 1.25rem;
       padding: 0.75rem;
     }
-    // .search {
-    //   width: 100%;
-    //   flex: auto;
-    //   margin: 0;
-    //   padding: 0;
-    //   border: none;
-    //   height: 2rem;
-    //   background-color: transparent;
-    // }
   }
 
   .buttonIcon {
@@ -92,69 +83,6 @@ h3 {
       width: 1.5rem;
       height: 1.5rem;
       color: $textColor;
-    }
-  }
-}
-
-.now {
-  margin-top: 2rem;
-
-  .main {
-    display: flex;
-    align-items: center;
-
-    .weatherIcon {
-      width: 10rem;
-      height: 10rem;
-      margin: 0 2rem;
-    }
-
-    div:nth-child(2) {
-      flex: auto;
-      h2 {
-        font-size: 6rem;
-        margin: 0 0 0.25rem 0;
-      }
-    }
-
-    div:nth-child(3) {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-
-      .range {
-        display: flex;
-        align-items: center;
-        flex: auto;
-
-        .hilo {
-          display: flex;
-          align-items: center;
-          margin-left: 2.5rem;
-          svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            padding: 0.75rem;
-            border-radius: 10rem;
-            background-color: $placeholder;
-            margin-right: 0.5rem;
-          }
-
-          span {
-            font-size: 0.75rem;
-          }
-
-          h3 {
-            margin: 0;
-            margin-top: 0.25rem;
-          }
-        }
-      }
-
-      .feeling {
-        text-align: right;
-        font-size: 0.9rem;
-      }
     }
   }
 }
