@@ -3,6 +3,7 @@
 :root {
   --spacing: 16px;
   --placeholder: #f1f5f91f;
+  --placeholderBright: #f1f5f98a;
 }
 
 body {
