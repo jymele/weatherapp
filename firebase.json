@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "weather-2003",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
